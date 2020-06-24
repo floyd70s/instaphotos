@@ -1,0 +1,33 @@
+{
+  "name": "instaphotos",
+  "version": "1.0.0",
+  "description": "obtain pics from public insta account",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/floyd70s/instaphotos.git"
+  },
+  "keywords": [
+    "api",
+    "instagram",
+    "pics",
+    "photos"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/floyd70s/instaphotos/issues"
+  },
+  "homepage": "https://github.com/floyd70s/instaphotos#readme"
+}
