@@ -12,16 +12,14 @@ async function instagramPhotos(req, res) {
     const URL = params.insta
     const resp = []
 
-    console.log('- init axios -' + URL)
     try {
         const userInfoSource = await Axios.get(URL)
-
         // se extrae el bloque
         const jsonObject = userInfoSource.data.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1)
-
+        
         const userInfo = JSON.parse(jsonObject)
-        // recibimos los primeros 10
-        const mediaArray = userInfo.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(0, 10)
+        // recibimos los primeros 100
+        const mediaArray = userInfo.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(0, 100)
         for (let media of mediaArray) {
             const node = media.node
 
@@ -36,6 +34,7 @@ async function instagramPhotos(req, res) {
     } catch (e) {
         console.error('Unable to retrieve photos. Reason: ' + e.toString())
     }
+    res.status(200).send({ resp })
 }
 
 
